@@ -32,6 +32,7 @@
         display: flex;
         align-items: center;
         padding: 15px 0px;
+        border-bottom: solid 1px gainsboro;
     }
 
     /* ヘッダー：タイトル右のコンテナー */
