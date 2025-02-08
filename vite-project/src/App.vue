@@ -57,6 +57,8 @@
     .base_container > .container {
         flex: 1;
         display: flex;
+        height: 100%;
+        overflow: hidden;
     }
 
     /* メインコンテンツを内包するコンテナー */

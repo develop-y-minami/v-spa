@@ -1,11 +1,15 @@
 :root {
     --color-violet: #b125e9;
+    --color-red: #ff3100;
+    --color-green: #2dc553;
 }
 
 /***************************************************************
 *   color
 ***************************************************************/
 .color-violet { color: var(--color-violet); }
+.color-red { color: var(--color-red); }
+.color-green { color: var(--color-green); }
 
 /***************************************************************
 *   button
@@ -39,6 +43,7 @@ body {
     width: 100dvw;
     height: 100dvh;
     font-size: 14px;
+    overflow: hidden;
 }
 
 /***************************************************************
@@ -47,6 +52,50 @@ body {
 #app {
     width: 100%;
     height: 100%;
+}
+
+/***************************************************************
+*   リスト
+***************************************************************/
+.list li {
+    border-top: solid 1px #f3f3f3;
+    cursor: pointer;
+}
+.list li:hover {
+    background-color: #cfecff;
+}
+/* リスト内に表示するコンテンツ */
+.list li .content {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+}
+/* リスト内に表示するアイコン */
+.list li .content .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.list li .content .icon span { font-size: 30px; }
+/* リスト内に表示する削除アイコン */
+.list li .content .icon.delete {
+    color: var(--color-red);
+}
+.list li .content .icon.delete:hover {
+    color: white;
+    background-color: var(--color-red);
+}
+/* リスト内に表示する編集アイコン */
+.list li .content .icon.edit {
+    color: var(--color-green);
+}
+.list li .content .icon.edit:hover {
+    color: white;
+    background-color: var(--color-green);
 }
 
 /***************************************************************
@@ -90,4 +139,50 @@ body {
 .template_menu .group .menu_list .button {
     flex-grow: 1;
     min-width: 180px;
+}
+
+/***************************************************************
+*   一覧を表示するページのテンプレート
+***************************************************************/
+.template_list {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+/* 一覧を内包するコンテナー */
+.template_list .list_container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 一覧を内包するコンテナーの上部 */
+.template_list .list_container .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+.template_list .list_container .top .left,
+.template_list .list_container .top .right {
+    display: flex;
+    align-items: center;
+}
+
+/* 一覧表示用のコンテナー */
+.template_list .list_container .list_wrap {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+}
+.template_list .list_container .list_wrap .list {
+    height: 100%;
+    overflow: auto;
+}
+
+
+.template_list .sub_menu_open_icon {
+    font-size: 40px;
+    cursor: pointer;
 }
