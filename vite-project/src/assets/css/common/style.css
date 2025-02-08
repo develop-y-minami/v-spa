@@ -1,0 +1,93 @@
+:root {
+    --color-violet: #b125e9;
+}
+
+/***************************************************************
+*   color
+***************************************************************/
+.color-violet { color: var(--color-violet); }
+
+/***************************************************************
+*   button
+***************************************************************/
+.button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 3px;
+}
+
+.button .name { flex: 1; }
+
+.button.violet {
+    color: white;
+    border: solid 1px var(--color-violet);
+    background-color: var(--color-violet);
+}
+
+.button.violet:hover {
+    color: var(--color-violet);
+    background-color: white;
+}
+
+/***************************************************************
+*   body
+***************************************************************/
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    width: 100dvw;
+    height: 100dvh;
+    font-size: 14px;
+}
+
+/***************************************************************
+*   app
+***************************************************************/
+#app {
+    width: 100%;
+    height: 100%;
+}
+
+/***************************************************************
+*   メニュー一覧を表示するページのテンプレート
+***************************************************************/
+.template_menu {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+/* グループを内包する行 */
+.template_menu .row {
+    display: flex;
+    gap: 15px;
+}
+/* メニューを内包するグループ */
+.template_menu .row .group {
+    flex: 1;
+}
+/* グループ名 */
+.template_menu .group .group_name {
+    display: flex;
+    align-items: center;
+}
+/* グループ名のアイコン */
+.template_menu .group .group_name .icon {
+    /* グループ名のアイコンと名称の間隔を調整 */
+    margin-right: 10px;
+    color: var(--color-violet);
+}
+/* グループ名のアイコンと名称を上下中央寄せに設定 */
+.template_menu .group .group_name .name { margin-top: 5px; }
+/* グループ内に含まれるメニューの一覧 */
+.template_menu .group .menu_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0px;
+}
+/* メニュー内のボタンの横幅 */
+.template_menu .group .menu_list .button {
+    flex-grow: 1;
+    min-width: 180px;
+}

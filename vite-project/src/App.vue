@@ -1,30 +1,67 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+    <div class="base_container">
+        <!-- ヘッダー -->
+        <Header :pageName="pageName" :pageIconName="pageIconName"></Header>
+
+        <div class="container">
+            <!-- サイドメニュー -->
+            <SideMenu />
+            
+            <main class="main_container">
+                <router-view v-slot="{ Component }">
+                    <component :is="Component" @send-message="handleMessage" />
+                </router-view>
+            </main>
+        </div>
+    </div>
 </template>
 
+<script setup lang="ts">
+    import { ref, watch } from 'vue';
+    import { useRoute } from 'vue-router';
+    import Header from './components/layouts/Header.vue';
+    import SideMenu from './components/layouts/SideMenu.vue';
+
+    // ページ名
+    const pageName = ref<string>('');
+    // ページ名横に表示するアイコンの名称
+    const pageIconName = ref<string>('');
+
+    // 子コンポーネントからのメッセージを受信
+    const handleMessage = (data: { pageName: string, pageIconName: string }) => {
+        pageName.value = data.pageName;
+        pageIconName.value = data.pageIconName;
+    };
+
+    // 現在のルート情報を取得
+    const route = useRoute();
+
+    // 現在のルートパスを監視
+    watch(() => route.path, () => {
+        // ルートパス変更時に値を初期化
+        pageName.value = '';
+        pageIconName.value = '';
+    });
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+    /* ページ全体を内包するコンテナー */
+    .base_container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* サイドメニューとメインコンテンツを分割するコンテナー */
+    .base_container > .container {
+        flex: 1;
+        display: flex;
+    }
+
+    /* メインコンテンツを内包するコンテナー */
+    .main_container {
+        flex: 1;
+        height: 100%;
+    }
 </style>
