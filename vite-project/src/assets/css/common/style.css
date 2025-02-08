@@ -2,6 +2,7 @@
     --color-violet: #b125e9;
     --color-red: #ff3100;
     --color-green: #2dc553;
+    --color-gray: #535353;
 }
 
 /***************************************************************
@@ -10,6 +11,7 @@
 .color-violet { color: var(--color-violet); }
 .color-red { color: var(--color-red); }
 .color-green { color: var(--color-green); }
+.color-gray { color: var(--color-gray); }
 
 /***************************************************************
 *   button
@@ -21,9 +23,9 @@
     padding: 15px;
     border-radius: 3px;
 }
-
 .button .name { flex: 1; }
 
+/* 紫色ボタン */
 .button.violet {
     color: white;
     border: solid 1px var(--color-violet);
@@ -34,6 +36,21 @@
     color: var(--color-violet);
     background-color: white;
 }
+
+/* 灰色ボタン */
+.button.gray {
+    color: white;
+    border: solid 1px var(--color-gray);
+    background-color: var(--color-gray);
+}
+
+.button.gray:hover {
+    color: var(--color-gray);
+    background-color: white;
+}
+
+/* 左にアイコンが存在するボタン */
+.button.left_icon { padding-right: 30px; }
 
 /***************************************************************
 *   body

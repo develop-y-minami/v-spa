@@ -3,11 +3,17 @@
     <TemplateList>
         <!-- 一覧上部（左）に表示するコンテンツ -->
         <template #listTopLeft>
-            <a href="" class="button violet">
-                <span class="material-symbols-outlined">add</span>
-                <span class="name">ユーザー追加</span>
-                <span class="material-symbols-outlined">chevron_right</span>
-            </a>
+            <div class="listTopLeft">
+                <a href="" class="button left_icon gray">
+                    <span class="material-symbols-outlined">first_page</span>
+                    <span class="name">戻る</span>
+                </a>
+                <a href="" class="button violet">
+                    <span class="material-symbols-outlined">add</span>
+                    <span class="name">ユーザー追加</span>
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </a>
+            </div>
         </template>
         <!-- 一覧上部（右）に表示するコンテンツ -->
         <template #listTopRight>
@@ -40,6 +46,9 @@
 </script>
 
 <style scoped>
-    
+    .listTopLeft {
+        display: flex;
+        gap: 15px;
+    }
 </style>
   
