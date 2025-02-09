@@ -4,10 +4,10 @@
         <!-- 一覧上部（左）に表示するコンテンツ -->
         <template #listTopLeft>
             <div class="listTopLeft">
-                <a href="" class="button left_icon gray">
+                <button @click="goBack" class="button left_icon gray">
                     <span class="material-symbols-outlined">first_page</span>
                     <span class="name">戻る</span>
-                </a>
+                </button>
                 <a href="" class="button violet">
                     <span class="material-symbols-outlined">add</span>
                     <span class="name">ユーザー追加</span>
@@ -28,6 +28,7 @@
 
 <script setup lang="ts">
     import { defineEmits } from 'vue';
+    import { useRouter } from 'vue-router';
     import TemplateList from '../components/layouts/TemplateList.vue';
     import UserList from '../components/lists/UserList.vue';
 
@@ -43,6 +44,15 @@
 
     // 親コンポーネントにデータを送信
     emit('send-message', { pageName: PAGE_NAME, pageIconName: PAGE_ICON_NAME });
+
+    // ルーターのインスタンスを取得
+    const router = useRouter();
+
+    // 戻るボタンクリック時のイベントを定義
+    const goBack = () => {
+        // 前ページへ戻る
+        router.back();
+    };
 </script>
 
 <style scoped>
