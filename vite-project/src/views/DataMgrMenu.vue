@@ -8,16 +8,16 @@
                     <span class="name">ユーザー管理</span>
                 </div>
                 <div class="menu_list">
-                    <router-link to="/data-mgr/user" class="button violet">
+                    <router-link to="/user" class="button violet">
                         <span class="material-symbols-outlined">format_list_bulleted</span>
                         <span class="name">一覧</span>
                         <span class="material-symbols-outlined">chevron_right</span>
                     </router-link>
-                    <a href="" class="button violet">
+                    <router-link to="/user/add" class="button violet">
                         <span class="material-symbols-outlined">add</span>
                         <span class="name">追加</span>
                         <span class="material-symbols-outlined">chevron_right</span>
-                    </a>
+                    </router-link>
                 </div>
             </div>
         </div>

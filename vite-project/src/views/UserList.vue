@@ -8,11 +8,11 @@
                     <span class="material-symbols-outlined">first_page</span>
                     <span class="name">戻る</span>
                 </button>
-                <a href="" class="button violet">
+                <router-link to="/user/add" class="button violet">
                     <span class="material-symbols-outlined">add</span>
                     <span class="name">ユーザー追加</span>
                     <span class="material-symbols-outlined">chevron_right</span>
-                </a>
+                </router-link>
             </div>
         </template>
         <!-- 一覧上部（右）に表示するコンテンツ -->
@@ -56,6 +56,7 @@
 </script>
 
 <style scoped>
+    /* 一覧上部左の要素を内包するコンテナー */
     .listTopLeft {
         display: flex;
         gap: 15px;

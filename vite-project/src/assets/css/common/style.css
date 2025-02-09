@@ -1,6 +1,7 @@
 :root {
     --color-violet: #b125e9;
     --color-red: #ff3100;
+    --color-blue: #0089ff;
     --color-green: #2dc553;
     --color-gray: #535353;
 }
@@ -10,6 +11,7 @@
 ***************************************************************/
 .color-violet { color: var(--color-violet); }
 .color-red { color: var(--color-red); }
+.color-blue { color: var(--color-blue); }
 .color-green { color: var(--color-green); }
 .color-gray { color: var(--color-gray); }
 
@@ -31,9 +33,19 @@
     border: solid 1px var(--color-violet);
     background-color: var(--color-violet);
 }
-
 .button.violet:hover {
     color: var(--color-violet);
+    background-color: white;
+}
+
+/* 青色ボタン */
+.button.blue {
+    color: white;
+    border: solid 1px var(--color-blue);
+    background-color: var(--color-blue);
+}
+.button.blue:hover {
+    color: var(--color-blue);
     background-color: white;
 }
 
@@ -43,7 +55,6 @@
     border: solid 1px var(--color-gray);
     background-color: var(--color-gray);
 }
-
 .button.gray:hover {
     color: var(--color-gray);
     background-color: white;
@@ -51,6 +62,58 @@
 
 /* 左にアイコンが存在するボタン */
 .button.left_icon { padding-right: 30px; }
+
+/***************************************************************
+*   input
+***************************************************************/
+.input {
+    padding: 10px 15px;
+    border: solid 1px #79d5ff;
+    border-radius: 3px;
+    background-color: #b8e9ff;
+}
+.input:focus {
+    border: solid 1px #4174ff;
+    outline: none;
+}
+
+/***************************************************************
+*   radio
+***************************************************************/
+.radio {
+    display: flex;
+    align-items: center;
+}
+/* ラジオボタン */
+.radio input {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: solid 1px #79d5ff;
+    background-color: #b8e9ff;
+    cursor: pointer;
+}
+/* ラジオボタンチェック時の円形 */
+.radio input:checked::before {
+    position: absolute;
+    margin-top: 4px;
+    margin-left: 4px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--color-blue);
+}
+/* ラジオボタンに対応するラベル */
+.radio input + label { margin-left: 10px; }
+
+/***************************************************************
+*   必須マーク
+***************************************************************/
+.required::before {
+    content: '*';
+    color: var(--color-red);
+}
 
 /***************************************************************
 *   body

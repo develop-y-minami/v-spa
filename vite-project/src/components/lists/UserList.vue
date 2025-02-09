@@ -1,4 +1,4 @@
-<!-- メニュー表示用のテンプレート -->
+<!-- ユーザー一覧 -->
 <template>
     <ul class="list">
         <li v-for="data in datas" :key="data.id">
@@ -58,7 +58,7 @@
         align-items: center;
         gap: 15px;
     }
-    
+
     /* ID */
     .user_content .id { margin-right: 10px; }
     /* 名前 */
