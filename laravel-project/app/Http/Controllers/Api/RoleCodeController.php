@@ -41,8 +41,12 @@ class RoleCodeController extends Controller
      */
     public function index(): JsonResponse
     {
-        $roleCodes = $this->roleCodeService->getAllRoleCodes();
-        return ApiResponse::success(RoleCodeResource::collection($roleCodes));
+        try {
+            $roleCodes = $this->roleCodeService->getAllRoleCodes();
+            return ApiResponse::success(RoleCodeResource::collection($roleCodes));
+        } catch (\Exception $e) {
+            return $this->handleException($e);
+        }
     }
 
     /**
@@ -53,12 +57,16 @@ class RoleCodeController extends Controller
      */
     public function show(int $id): JsonResponse
     {
-        $roleCode = $this->roleCodeService->getRoleCodeById($id);
+        try {
+            $roleCode = $this->roleCodeService->getRoleCodeById($id);
 
-        if ($roleCode) {
-            return ApiResponse::success(new RoleCodeResource($roleCode));
+            if ($roleCode) {
+                return ApiResponse::success(new RoleCodeResource($roleCode));
+            }
+
+            return ApiResponse::error('Role code not found', 404);
+        } catch (\Exception $e) {
+            return $this->handleException($e);
         }
-
-        return ApiResponse::error('Role code not found', 404);
     }
 }
