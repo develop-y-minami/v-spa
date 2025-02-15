@@ -30,14 +30,14 @@
             </div>
             <div class="row">
                 <div class="item">
-                    <div class="label required">権限</div>
+                    <div class="label required">役割</div>
                     <div class="radio_container">
                         <div class="radio">
-                            <input type="radio" id="user" name="authority" value="0" checked />
+                            <input type="radio" id="user" name="roles" value="0" checked />
                             <label for="user">一般</label>
                         </div>
                         <div class="radio">
-                            <input type="radio" id="admin" name="authority" value="1" />
+                            <input type="radio" id="admin" name="roles" value="1" />
                             <label for="admin">管理者</label>
                         </div>
                     </div>
@@ -103,10 +103,6 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-    }
-    /* 入力用のコンテナーの行内の入力項目のラベル */
-    .input_container .row .item .label {
-        font-size: 12px;
     }
 
     /* ラジオボタン表示用のコンテナー */
