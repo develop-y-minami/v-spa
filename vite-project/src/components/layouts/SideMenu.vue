@@ -2,12 +2,10 @@
 <template>
     <aside class="side_menu">
         <!-- Home -->
-        <div v-if="showHeader">
-            <div class="menu">
-                <router-link to="/">
-                    <span class="material-symbols-outlined icon">home</span>
-                </router-link>
-            </div>
+        <div class="menu">
+            <router-link to="/">
+                <span class="material-symbols-outlined icon">home</span>
+            </router-link>
         </div>
         <!-- データ管理 -->
         <div class="menu">
@@ -23,17 +21,6 @@
         </div>
     </aside>
 </template>
-
-<script setup lang="ts">
-    import { computed } from 'vue';
-    import { useRoute } from 'vue-router';
-
-    // 現在のルート情報を取得
-    const route = useRoute();
-
-    // Homeメニューを表示する条件を指定
-    const showHeader = computed(() => route.path !== '/');
-</script>
 
 <style scoped>
     /***************************************************************

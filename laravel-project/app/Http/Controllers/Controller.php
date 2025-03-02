@@ -18,6 +18,11 @@ class Controller extends BaseController
      */
     public function handleException(Exception $exception)
     {
+        // バリデーションエラーの場合
+        if ($exception instanceof ValidationException) {
+            return ApiResponse::error('Validation failed', 422, $exception->errors());
+        }
+        
         // 404エラー: リソースが見つからない場合
         if ($exception instanceof NotFoundHttpException) {
             return ApiResponse::error('Resource not found', 404);

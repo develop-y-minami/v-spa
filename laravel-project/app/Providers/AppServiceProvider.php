@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Services\RoleCodeServiceInterface;
 use App\Services\RoleCodeService;
+use App\Services\UserServiceInterface;
+use App\Services\UserService;
 
 /**
  * アプリケーションサービスプロバイダー
@@ -25,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(RoleCodeServiceInterface::class, RoleCodeService::class);
+        $this->app->bind(UserServiceInterface::class, UserService::class);
     }
 
     /**

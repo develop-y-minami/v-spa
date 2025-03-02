@@ -6,25 +6,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Traits\ModelTrait;
 
+/**
+ * User モデルクラス
+ *
+ * このクラスは users テーブルに対応する Eloquent モデルです。
+ * ユーザー情報の管理や認証関連の機能を提供します。
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, ModelTrait;
 
     /**
-     * The attributes that are mass assignable.
+     * 一括代入を許可する属性のリスト
      *
      * @var list<string>
      */
     protected $fillable = [
+        'username',
         'name',
         'email',
         'password',
+        'role_code_id',
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * シリアル化時に隠す属性のリスト
      *
      * @var list<string>
      */
@@ -34,7 +43,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * キャストする属性のリスト
      *
      * @return array<string, string>
      */
